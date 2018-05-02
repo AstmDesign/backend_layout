@@ -10,30 +10,114 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require bootstrap.min
  *= require font-awesome
  *= require AdminLTE.min
- *= require blue_style
+ *= require all_skins.min
+ *= require_self
  */
 
-.login-box , .login-box-body, .register-box-body {
-  background-color: #d2d6de;
+
+// login layout
+.login-box {
+
+  .login-box-body, .register-box-body {
+    background-color: #ECF0F5;
+  }
+
+  .login-logo {
+    margin: 5px 0px 0px 0px;
+  }
+
+  .checkbox{
+    .field{
+      margin: -10px 0px 0px 20px;
+    }
+    label {
+      padding-left: 0px;
+    }
+  }
+
+  .login-box-msg, .register-box-msg {
+    padding: 0px;
+  }
+
+  background-color: #ECF0F5;
+  border: solid 1px #c8ced6;
 }
 
-.login-logo {
-  margin: 5px 0px 0px 0px;
+.alert{
+  margin: 7% auto -5% auto;
+  width: 360px;
 }
 
-.checkbox.icheck .field{
-  margin: -10px 0px 0px 20px;
-}
 
-.checkbox label, .radio label {
-  padding-left: 0px;
-}
 
-.login-box-msg, .register-box-msg {
-  padding: 0px;
+.skin-blue {
+
+  // Login layout ////////////////////////////////
+
+  // main layout ////////////////////////////////
+
+  .main-header {
+    .navbar , .logo  , li.user-header{
+      background-color: #232D32;
+    }
+
+    .logo , .navbar .sidebar-toggle {
+      &:hover {
+        background-color:#232D32;
+      }
+    }
+
+  }
+
+  .user-panel {
+    .info {
+      padding: 15px 5px 5px 15px;
+      width: 165px;
+    }
+  }
+
+  .content {
+    .alert {
+      margin: 0px;
+      width: 100%;
+      padding: 10px;
+
+      .close {
+        top: auto;
+        right: auto;
+      }
+
+    }
+
+    .content-header {
+      padding: 15px 0px 0 0px;
+
+      h1 {
+        margin: -15px 0px 0px 0px;
+        padding: 5px 5px 5px 5px;
+      }
+
+      .breadcrumb {
+        margin-top: -12px;
+        background: none;
+      }
+
+      // @media (max-width: 991px) {
+      //   .breadcrumb {
+      //     background: none;
+      //   }
+      // }
+
+    }
+
+    .box {
+      margin: 10px 0px;
+      border-top-color: #232D32;
+    }
+
+  }
+
 }

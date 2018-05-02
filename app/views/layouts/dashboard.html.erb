@@ -3,32 +3,215 @@
 <head>
   <title>Dashboard</title>
   <%= stylesheet_link_tag    'dashboard', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="skin-blue sidebar-mini sidebar-collapse">
 
-  <% if notice %>
-    <div class="alert alert-success alert-dismissible show" role="alert">
-      <strong>Notice: </strong>
-      <%= notice %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <% end %>
+  <div class="wrapper">
 
-  <% if alert %>
-    <div class="alert alert-danger alert-dismissible show" role="alert">
-      <strong>Alert: </strong>
-      <%= alert %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <% end %>
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Admin</b>LTE</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Messages: style can be found in dropdown.less-->
+            <li class="dropdown messages-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope-o"></i>
+                <span class="label label-success">4</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header">You have 4 messages</li>
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+                    <li><!-- start message -->
+                      <a href="#">
+                        <div class="pull-left">
+                          <%= image_tag("user2-160x160.jpg",:alt=>"User Image" , :title=>"", :class=>"img-circle")%>
+                        </div>
+                        <h4>
+                          Support Team
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li><!-- end message -->
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <%= image_tag("user2-160x160.jpg",:alt=>"User Image" , :title=>"", :class=>"img-circle")%>
+                        </div>
+                        <h4>
+                          AdminLTE Design Team
+                          <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                  </ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                </li>
+                <li class="footer"><a href="#">See All Messages</a></li>
+              </ul>
+            </li>
 
-  <%= yield %>
+
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= image_tag("user2-160x160.jpg",:alt=>"User Image" , :title=>"", :class=>"user-image")%>
+                <span class="hidden-xs">Astm</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <%= image_tag("user2-160x160.jpg",:alt=>"User Image" , :title=>"", :class=>"img-circle")%>
+                  <p>
+                    <%=current_user.first_name %> <%=current_user.last_name %>
+                    <small>  Last login: <%=current_user.last_sign_in_at %></small>
+                  </p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <%= link_to edit_user_registration_path , :class=>"btn btn-default btn-flat" do %>
+                    Profile
+                    <% end %>
+                  </div>
+                  <div class="pull-right">
+                    <%= link_to(destroy_user_session_path, method: :delete , :class=>"btn btn-default btn-flat") do %>
+                    Sign out
+                    <% end %>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar" style="height: auto;">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+          <div class="pull-left image">
+            <%= image_tag("user2-160x160.jpg",:alt=>"User Image" , :title=>"", :class=>"img-circle")%>
+          </div>
+          <div class="pull-left info">
+            <p>
+              <%= link_to edit_user_registration_path do %>
+              <%=current_user.first_name %> <%=current_user.last_name %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+
+          <li class="active treeview">
+            <a href="#">
+              <i class="fa fa-dashboard"></i>
+              <span>Tree view</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li class="active">
+                <a href="index.html">
+                  <i class="fa fa-circle-o"></i>
+                  Dashboard v1
+                </a>
+              </li>
+              <li>
+                <a href="index2.html">
+                  <i class="fa fa-circle-o"></i>
+                  Dashboard v2
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="pages/widgets.html">
+              <i class="fa fa-th"></i>
+              <span>One page</span>
+              <small class="label pull-right bg-green">new</small>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 916px;">
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- notices -->
+        <% if notice %>
+        <div class="alert alert-success alert-dismissible show" role="alert">
+          <strong>Notice: </strong>
+          <%= notice %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <% end %>
+
+        <% if alert %>
+        <div class="alert alert-danger alert-dismissible show" role="alert">
+          <strong>Alert: </strong>
+          <%= alert %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <% end %>
+
+        <%= yield %>
+
+      </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.0
+      </div>
+      <strong>Copyright © 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+    </footer>
+
+  </div>
+
+  <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
 
 </body>
 </html>

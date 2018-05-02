@@ -1,22 +1,69 @@
-<% if user_signed_in? %>
+<!--box-->
+<div class="box box-info">
+  <!--content-header-->
+  <div class="content-header">
+    <h1>
+      <%= fa_icon "dashboard" %>
+      Dashboard
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#">
+          <i class="fa fa-dashboard"></i>
+          Home
+        </a>
+      </li>
+      <li class="active">
+        Dashboard
+      </li>
+    </ol>
+  </div><!--content-header-->
+</div><!--box-->
 
-  <br>
-  first_name:
-  <%= link_to edit_user_registration_path do %>
-    <%=current_user.first_name %>
-  <% end %><br>
-  last_name: <%=current_user.last_name %> <br>
-  email: <%=current_user.email %> <br>
-  last_sign_in_at: <%=current_user.last_sign_in_at %> <br>
 
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<!--box-->
+<div class="box box-info">
+  <!-- box-header -->
+  <div class="box-header with-border">
+    <h3 class="box-title">Latest Orders</h3>
+    <!--box-tools-->
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div><!--box-tools-->
+  </div><!-- box-header -->
 
-  <%= link_to('Dashboard', dashboard_path) %>
+  <!-- box-body -->
+  <div class="box-body">
 
-  <%= link_to('Home', root_path) %>
+    <% if user_signed_in? %>
 
-<% else %>
+      <br>
+      first_name:
+      <%= link_to edit_user_registration_path do %>
+        <%=current_user.first_name %>
+      <% end %><br>
+      last_name: <%=current_user.last_name %> <br>
+      email: <%=current_user.email %> <br>
+      last_sign_in_at: <%=current_user.last_sign_in_at %> <br>
 
-  <%= link_to('Login', new_user_session_path)  %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+       |
+      <%= link_to('Dashboard', dashboard_path) %>
+       |
+      <%= link_to('Home', root_path) %>
 
-<% end %>
+    <% else %>
+
+      <%= link_to('Login', new_user_session_path)  %>
+
+    <% end %>
+
+  </div><!-- box-body -->
+
+  <!-- box-footer -->
+  <div class="box-footer clearfix">
+  </div><!-- box-footer -->
+
+</div><!--box-->
