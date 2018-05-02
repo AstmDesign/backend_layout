@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+/public/dev-assets
+/public/system
+
+.DS_Store
+.*.swp
