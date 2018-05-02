@@ -8,4 +8,4 @@
 
 
 # Create admin user
-User.create(first_name: 'Astm', last_name: 'Ali', email: 'astm@astm.com',  password: '123456', password_confirmation: 'astmastm')
+User.create(first_name: 'Astm', last_name: 'Ali', email: 'astm@astm.com',  password: '123456', password_confirmation: '123456')
